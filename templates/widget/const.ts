@@ -8,6 +8,8 @@ import LazyElement from "../utils/lazyElement";
 /** mcaptcha checkbox ID **/
 export const btnId = "widget__verification-checkbox";
 
+export const getLang = (): string => (navigator.language || "en").split("-")[0];
+
 /** get sitekey */
 export const sitekey = (): string => {
   let sitekey;
@@ -56,10 +58,28 @@ type messageTextReturn = {
   error: () => void;
 };
 
-export const BEFORE = "I'm not a robot";
-export const DURING = "Processing...";
-export const AFTER = "Verified!";
-export const ERROR = "Something went wrong";
+const translations = {
+  en: {
+    BEFORE: "I'm not a robot.",
+    DURING: "Processing...",
+    AFTER: "Verified!",
+    ERROR: "Something went wrong"
+  },
+  de: {
+    BEFORE: "Ich bin kein Roboter.",
+    DURING: "Verarbeitung...",
+    AFTER: "Verifiziert!",
+    ERROR: "Etwas ist schief gelaufen"
+  },
+  // Add more languages as needed
+};
+const lang = getLang();
+const t = translations[lang as keyof typeof translations] || translations["de"];
+
+export const BEFORE = t.BEFORE;
+export const DURING = t.DURING;
+export const AFTER = t.AFTER;
+export const ERROR = t.ERROR;
 
 export const messageText = (): messageTextReturn => {
   const conatinerID = "widget__verification-text";

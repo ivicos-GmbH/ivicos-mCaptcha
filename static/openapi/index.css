@@ -2,6 +2,7 @@ html {
     box-sizing: border-box;
     overflow: -moz-scrollbars-vertical;
     overflow-y: scroll;
+    font-family: "Segoe UI", "SegoeUI", "Helvetica Neue", Arial, sans-serif;
 }
 
 *,
@@ -13,4 +14,5 @@ html {
 body {
     margin: 0;
     background: #fafafa;
+    font-family: "Segoe UI", "SegoeUI", "Helvetica Neue", Arial, sans-serif;
 }
