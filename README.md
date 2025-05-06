@@ -3,7 +3,7 @@
   <h1>mCaptcha</h1>
   <p>
     <strong>
-Proof of work based, privacy respecting CAPTCHA system with a kickass UX. 
+Proof of work based, privacy respecting CAPTCHA system with a kickass UX.
 </strong>
   </p>
 
@@ -17,6 +17,15 @@ Proof of work based, privacy respecting CAPTCHA system with a kickass UX.
 [![Chat](https://img.shields.io/badge/matrix-+mcaptcha:matrix.batsense.net-purple?style=flat-square)](https://matrix.to/#/+mcaptcha:matrix.batsense.net)
 
 **STATUS: ACTIVE DEVELOPMENT**
+
+> **Notice:**
+> This instance of mCaptcha is using the publicly available hosted version provided by the [mCaptcha project](https://mcaptcha.org).
+> No modifications have been made to the core functionality of the original software.
+> You can find the deployment, configuration, and usage details for our instance in this repository:
+> 👉 [https://github.com/ivicos-GmbH/ivicos-mCaptcha](https://github.com/ivicos-GmbH/ivicos-mCaptcha)
+
+> This project is governed by the [GNU Affero General Public License v3.0](https://www.gnu.org/licenses/agpl-3.0.html).
+> As required under AGPL, this repository is provided to offer transparency and source access to users interacting with the software over the network.
 
 </div>
 
