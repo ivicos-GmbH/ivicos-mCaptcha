@@ -71,6 +71,14 @@ body {
 	margin: 0 10px;
 }
 
+.widget__verification-checkbox:checked {
+	accent-color: #0078d4;
+}
+
+.widget__verification-checkbox:checked:hover {
+	accent-color: #106ebe;
+}
+
 .widget__mcaptcha-details {
 	display: flex;
 	flex-direction: column;

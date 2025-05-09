@@ -8,7 +8,12 @@ import LazyElement from "../utils/lazyElement";
 /** mcaptcha checkbox ID **/
 export const btnId = "widget__verification-checkbox";
 
-export const getLang = (): string => (navigator.language || "en").split("-")[0];
+/** get language from URL or fallback to browser language */
+export const getLang = (): string => {
+  const urlLang = new URL(window.location.href).searchParams.get("lang");
+  if (urlLang) return urlLang;
+  return (navigator.language || "de").split("-")[0];
+};
 
 /** get sitekey */
 export const sitekey = (): string => {
@@ -74,7 +79,7 @@ const translations = {
   // Add more languages as needed
 };
 const lang = getLang();
-const t = translations[lang as keyof typeof translations] || translations["de"];
+const t = translations[lang as keyof typeof translations] || translations["en"];
 
 export const BEFORE = t.BEFORE;
 export const DURING = t.DURING;
