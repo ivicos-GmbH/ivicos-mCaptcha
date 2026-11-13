@@ -76,6 +76,12 @@ const translations = {
     AFTER: "Verifiziert!",
     ERROR: "Etwas ist schief gelaufen"
   },
+  fr: {
+    BEFORE: "Je ne suis pas un robot.",
+    DURING: "Traitement en cours...",
+    AFTER: "Vérifié\u00a0!",
+    ERROR: "Une erreur s’est produite"
+  },
   // Add more languages as needed
 };
 const lang = getLang();
