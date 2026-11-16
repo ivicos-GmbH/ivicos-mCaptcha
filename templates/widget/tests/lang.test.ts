@@ -18,10 +18,10 @@ const DE = {
 };
 
 const FR = {
-  BEFORE: "Je ne suis pas un robot.",
-  DURING: "Traitement en cours...",
+  BEFORE: "Je ne suis pas un\u00a0robot.",
+  DURING: "Traitement en\u00a0cours...",
   AFTER: "Vérifié\u00a0!",
-  ERROR: "Une erreur s’est produite",
+  ERROR: "Une erreur s’est\u00a0produite",
 };
 
 const setUrl = (query: string) => {
@@ -61,8 +61,24 @@ it("?lang=fr shows the French texts", async () => {
   const checkbox = document.createElement("input");
   checkbox.id = CONST.btnId;
   document.body.append(msg, checkbox);
-  CONST.messageText().before();
-  expect(msg.innerText).toBe(FR.BEFORE);
+
+  // jsdom implements neither innerText nor ariaValueText: both are plain
+  // properties here, so these checks show which value showMsg() wrote to
+  // which element, not what a browser renders (that was checked in Chrome).
+  // ariaValueText is on the checkbox, a second element showMsg() must update.
+  const show = CONST.messageText();
+  const states: [() => void, string][] = [
+    [show.before, FR.BEFORE],
+    [show.during, FR.DURING],
+    [show.after, FR.AFTER],
+    [show.error, FR.ERROR],
+  ];
+  expect(checkbox.ariaValueText).toBeUndefined();
+  for (const [showState, text] of states) {
+    showState();
+    expect(msg.innerText).toBe(text);
+    expect(checkbox.ariaValueText).toBe(text);
+  }
 });
 
 it("a French browser with no ?lang= gets French", async () => {

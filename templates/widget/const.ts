@@ -77,10 +77,10 @@ const translations = {
     ERROR: "Etwas ist schief gelaufen"
   },
   fr: {
-    BEFORE: "Je ne suis pas un robot.",
-    DURING: "Traitement en cours...",
+    BEFORE: "Je ne suis pas un\u00a0robot.",
+    DURING: "Traitement en\u00a0cours...",
     AFTER: "Vérifié\u00a0!",
-    ERROR: "Une erreur s’est produite"
+    ERROR: "Une erreur s’est\u00a0produite"
   },
   // Add more languages as needed
 };
