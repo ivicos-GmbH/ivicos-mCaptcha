@@ -20,7 +20,9 @@ COPY Makefile /src/
 COPY scripts /src/scripts
 RUN make frontend
 
-FROM rust:latest as rust
+# Pinned: rust:latest (1.100+) fails to compile sqlx-postgres 0.7.4 (E0277,
+# never-type fallback). -bookworm matches the debian:bookworm runtime stage.
+FROM rust:1.86-bookworm as rust
 WORKDIR /src
 COPY . .
 COPY --from=frontend /src/static/cache/bundle/ /src/static/cache/bundle/
