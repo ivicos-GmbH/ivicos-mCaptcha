@@ -69,6 +69,7 @@ body {
 	width: 30px;
 	height: 30px;
 	margin: 0 10px;
+	flex-shrink: 0;
 }
 
 .widget__verification-checkbox:checked {
@@ -91,22 +92,28 @@ body {
 	font-weight: 600;
 	margin: auto;
 	text-align: center;
+	line-height: 13px;
 }
 
 .widget__mcaptcha-logo {
 	display: block;
-	width: 35px;
+	width: 24px;
 	margin: auto;
 }
 
+/* Links stacked under the logo, so the column stays narrow and longer
+   texts (fr) fit on one line in the client's 340 x 70 iframe. */
 .widget__mcaptcha-info-container {
 	display: flex;
+	flex-direction: column;
+	align-items: center;
 	margin: auto;
 }
 
 .widget__mcaptcha-info-link {
 	font-size: 0.5rem;
-	margin: 2px;
+	margin: 0;
+	line-height: 11px;
 }
 
 /* progress bar courtesy of https://codepen.io/Bizzy-Coding/pen/poOymVJ?editors=1111 */
